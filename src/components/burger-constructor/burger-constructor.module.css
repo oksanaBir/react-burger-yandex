@@ -1,0 +1,13 @@
+.constructor-block {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	height: 100%;
+}
+
+.counter-box {
+	display: grid;
+	grid-template-columns: repeat(3,max-content);
+	justify-content: flex-end;
+	align-items: center;
+}
