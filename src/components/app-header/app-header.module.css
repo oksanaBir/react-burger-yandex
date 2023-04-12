@@ -1,0 +1,11 @@
+.app-header {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background: #1C1C21;
+	height: 88px;
+}
