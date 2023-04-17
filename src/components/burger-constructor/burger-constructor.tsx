@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { v4 as uuid } from 'uuid';
 import constructorStyles from './burger-constructor.module.css';
 import { ConstructorElement } from '@ya.praktikum/react-developer-burger-ui-components';
 import { Button } from '@ya.praktikum/react-developer-burger-ui-components';
@@ -28,7 +27,6 @@ function BurgerConstructor({ingredients} : {ingredients: Array<IIngredient>}) {
         {bunIngregients.length > 0 && (
           <div className={`${constructorStyles['card-wrapper']} ml-8`}>
             <ConstructorElement
-              key={uuid()}
               isLocked
               text={bunIngregients[0].name + '(верх)'}
               type='top'
@@ -38,16 +36,15 @@ function BurgerConstructor({ingredients} : {ingredients: Array<IIngredient>}) {
           </div>
         )}
         <div className={`${constructorStyles['list-items']} custom-scroll`}>
-          {ingredients.map(ingredient => {
-            const { name, price, image_mobile } = ingredient;
-            if (ingredient.type !== 'bun') {
+          {ingredients.map((ingredient, index) => {
+            const { name, price, type, image_mobile, _id } = ingredient;
+            if (type !== 'bun') {
             return (
-              <div className={`${constructorStyles['card-wrapper']} mb-4`}>
+              <div key={index} className={`${constructorStyles['card-wrapper']} mb-4`}>
                 <span className='mr-2'>
                   <DragIcon type="primary" />
                 </span>
                 <ConstructorElement
-                  key={uuid()}
                   text={name}
                   price={price}
                   thumbnail={image_mobile}
@@ -60,7 +57,6 @@ function BurgerConstructor({ingredients} : {ingredients: Array<IIngredient>}) {
         {bunIngregients.length > 0 && (
           <div className={`${constructorStyles['card-wrapper']} ml-8`}>
             <ConstructorElement
-              key={uuid()}
               isLocked
               text={bunIngregients[0].name + '(низ)'}
               type='bottom'

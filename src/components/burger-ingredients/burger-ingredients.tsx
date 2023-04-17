@@ -1,5 +1,4 @@
 import React, { Dispatch, SetStateAction } from 'react';
-import { v4 as uuid } from 'uuid';
 import { IIngredient } from '../../utils/types';
 import { Tabs, TypeSection } from '../burger-ingredients/ingredient-components';
 import ingredientsStyles from './burger-ingredients.module.css';
@@ -9,7 +8,11 @@ function BurgerIngredients({ addIngredients, ingredients, addedIngredients } : {
   ingredients: Array<IIngredient>;
   addedIngredients: Array<IIngredient>;
 }) {
-  const sections = [{ name: 'Булки', type: 'bun' }, { name: 'Соусы', type: 'sauce' }, { name: 'Начинки', type: 'main' }];
+  const sections = [
+    { id: 1, name: 'Булки', type: 'bun' },
+    { id: 2, name: 'Соусы', type: 'sauce' },
+    { id: 3, name: 'Начинки', type: 'main' }
+  ];
 
   return (
     <div>
@@ -18,7 +21,7 @@ function BurgerIngredients({ addIngredients, ingredients, addedIngredients } : {
       <div className={`${ingredientsStyles['main-section-wrapper']} custom-scroll`}>
         {sections.map(section => (
           <TypeSection
-            key={uuid()}
+            key={section.id}
             ingredients={ingredients}
             addedIngredients={addedIngredients}
             ingredientType={section.type}

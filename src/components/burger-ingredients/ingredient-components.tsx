@@ -1,6 +1,5 @@
 import React, { Dispatch, SetStateAction, useState } from 'react';
 import ingredientsStyles from './burger-ingredients.module.css';
-import { v4 as uuid } from 'uuid';
 import { CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-components';
 import { Tab } from '@ya.praktikum/react-developer-burger-ui-components';
 import Modal from '../modal/modal';
@@ -16,6 +15,7 @@ interface ITypeSection {
 };
 
 interface ISections {
+  id: number;
   name: string;
   type: string;
 }
@@ -41,7 +41,7 @@ function Card({ item, addIngredients, ingredients }: ICard) {
   return (
     <div>
       <div className={`${ingredientsStyles['info-card']} mt-10`}>
-        <img alt='small view of burger ingredient' src={image} onClick={() => setModalOpen(true)} className='pl-4 pr-4' />
+        <img alt={name} src={image} onClick={() => setModalOpen(true)} className='pl-4 pr-4' />
         <div onClick={handleAddIngredient} className={`${ingredientsStyles['description-card']} mt-10`}>
           <p className='text text_type_main-default pr-2'>{price}</p>
           <CurrencyIcon type='primary' />
@@ -63,7 +63,7 @@ function Tabs({ sections } : {sections: ISections[]}) {
   return (
     <div className={`${ingredientsStyles['tabs-wrapper']}`}>
       {sections.map(section => (
-        <Tab key={uuid()} value={section.type} active={current === section.type} onClick={setCurrent}>
+        <Tab key={section.id} value={section.type} active={current === section.type} onClick={setCurrent}>
           {section.name}
         </Tab>
       ))}
@@ -78,7 +78,7 @@ function TypeSection({ title, ingredientType, addIngredients, ingredients, added
 			<section className={`${ingredientsStyles['section-wrapper']}`}>
 				{ingredients.map((item) => {
 					if (item.type === ingredientType) {
-						return <Card key={uuid()} addIngredients={addIngredients} ingredients={addedIngredients} item={item} />
+						return <Card key={item._id} addIngredients={addIngredients} ingredients={addedIngredients} item={item} />
 					} else return null;
 				})}
 			</section>
