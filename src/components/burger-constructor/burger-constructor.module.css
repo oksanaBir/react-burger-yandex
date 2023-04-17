@@ -1,7 +1,7 @@
 .constructor-block {
 	display: flex;
 	flex-direction: column;
-	gap: 10px;
+	gap: 16px;
 	height: 100%;
 }
 
@@ -10,4 +10,20 @@
 	grid-template-columns: repeat(3,max-content);
 	justify-content: flex-end;
 	align-items: center;
+}
+
+.list-items {
+	overflow: auto;
+}
+
+.card-wrapper {
+	max-height: 80px;
+}
+
+.card-wrapper:last-child {
+	margin-bottom: 0;
+}
+
+.main-wrapper {
+	height: calc(100vh - 300px);
 }

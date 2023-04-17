@@ -7,7 +7,7 @@ function ModalOverlay({
 }: {
 	children: JSX.Element;
   onClose: () => void;
-}) {
+}): JSX.Element {
   return (
     <div className={overlayStyles['overlay']} onClick={onClose}>
       {children}

@@ -1,9 +1,10 @@
 import React from 'react';
 import { ReactComponent as CheckMark } from '../../images/check-mark.svg';
+import detailStyles from './order-details.module.css';
 
-function AcceptModal() {
+function OrderDetails() {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+    <div className={`${detailStyles['modalLayout']}`}>
       <div className={`text text_type_digits-large`}>
        {Math.floor(Math.random() * 1000000)}
       </div>
@@ -21,4 +22,4 @@ function AcceptModal() {
   );
 };
 
-export default AcceptModal;
+export default OrderDetails;

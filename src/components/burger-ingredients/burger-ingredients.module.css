@@ -4,3 +4,23 @@
 	flex-direction: column;
 	justify-content: center;
 }
+
+.main-section-wrapper {
+	overflow-y: scroll;
+	height: calc(100vh - 244px);
+}
+
+.section-wrapper {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.description-card {
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+}
+
+.tabs-wrapper {
+	display: flex;
+}

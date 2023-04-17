@@ -11,3 +11,7 @@
 	justify-content: space-between;
 	margin: 40px 40px 0 40px;
 }
+
+.icon-wrapper {
+	cursor: pointer;
+}

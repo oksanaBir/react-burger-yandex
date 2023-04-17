@@ -1,0 +1,12 @@
+.app-block {
+	height: 100vh;
+	overflow: hidden;
+}
+
+.main-blocks {
+	display: grid;
+	grid-column-gap: 40px;
+	grid-template-columns: repeat(2, minmax(600px, 600px));
+	justify-content: center;
+	padding-top: 88px;
+}

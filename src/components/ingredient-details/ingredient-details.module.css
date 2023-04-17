@@ -1,0 +1,11 @@
+.modal-layout {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.parameters-block {
+	display: grid;
+	grid-template-columns: repeat(4, 120px);
+	gap: 20px; 
+}

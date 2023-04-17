@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import ModalOverlay from '../modal-overlay/Modal-Overlay';
+import ModalOverlay from '../modal-overlay/modal-overlay';
 import { CloseIcon } from '@ya.praktikum/react-developer-burger-ui-components';
 import modalStyles from './modal.module.css';
 
@@ -12,7 +12,7 @@ function Modal({ children, title, onClose }: {
 }) {
   useEffect(() => {
     const buttonClose = (e: KeyboardEvent) => {
-      if (e.keyCode === 27) onClose();
+      if (e.key === 'Escape') onClose();
     };
     document.body.addEventListener('keydown', buttonClose);
     return () => {
@@ -22,12 +22,10 @@ function Modal({ children, title, onClose }: {
 
   return ReactDOM.createPortal(
     <ModalOverlay onClose={onClose}>
-      <div className={`${modalStyles.layout}`}>
-        <div
-          className={`${modalStyles['header']} text text_type_main-medium`}
-        >
+      <div onClick={(e) => e.stopPropagation()} className={`${modalStyles.layout}`}>
+        <div className={`${modalStyles['header']} text text_type_main-medium`}>
           {title ?? <br />}
-          <div style={{ cursor: 'pointer' }}>
+          <div onClick={onClose} className={`${modalStyles['icon-wrapper']}`}>
             <CloseIcon type='primary' />
           </div>
         </div>
